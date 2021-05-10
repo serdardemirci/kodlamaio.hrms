@@ -1,0 +1,2 @@
+--INSERT INTO jobs_seekers (name) VALUES ('Software Developer');
+--INSERT INTO jobs_seekers (name) VALUES ('Software Architecture');
