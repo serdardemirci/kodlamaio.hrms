@@ -17,4 +17,9 @@ public class JobSeekerManager implements JobSeekerService {
     public List<JobSeeker> getAll() {
         return this.jobSeekerDao.findAll();
     }
+
+    @Override
+    public void add(JobSeeker jobSeeker) {
+        this.jobSeekerDao.save(jobSeeker);
+    }
 }

@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface JobSeekerService {
     List<JobSeeker> getAll();
+    void add(JobSeeker jobSeeker);
 }

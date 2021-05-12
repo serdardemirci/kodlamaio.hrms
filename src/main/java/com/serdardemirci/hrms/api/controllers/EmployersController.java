@@ -1,7 +1,7 @@
 package com.serdardemirci.hrms.api.controllers;
 
 import com.serdardemirci.hrms.business.abstracts.EmployerService;
-import com.serdardemirci.hrms.entities.concretes.Employer;
+import com.serdardemirci.hrms.entities.concretes.Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +17,7 @@ public class EmployersController {
     private EmployerService employerService;
 
     @GetMapping("/getall")
-    public List<Employer> getAll(){
+    public List<Company> getAll(){
         return this.employerService.getAll();
     }
 }

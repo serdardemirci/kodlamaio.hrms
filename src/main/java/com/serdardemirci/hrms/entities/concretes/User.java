@@ -1,6 +1,5 @@
 package com.serdardemirci.hrms.entities.concretes;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -26,10 +25,12 @@ public abstract class User {
 
     @Column(name = "is_verified")
     private boolean isVerified;
-
+/*
     public User(String email, String password, boolean isVerified) {
         this.email = email;
         this.password = password;
         this.isVerified = isVerified;
     }
+
+ */
 }

@@ -20,4 +20,7 @@ public class JobsController {
     public List<Job> getAll(){
         return this.jobService.getAll();
     }
+
+    private int number;
+
 }
