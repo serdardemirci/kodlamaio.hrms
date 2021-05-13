@@ -14,23 +14,15 @@ public abstract class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "id", updatable = false)
     private int id;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "is_verified")
+    @Column(name = "is_verified", nullable = false)
     private boolean isVerified;
-/*
-    public User(String email, String password, boolean isVerified) {
-        this.email = email;
-        this.password = password;
-        this.isVerified = isVerified;
-    }
-
- */
 }

@@ -4,6 +4,6 @@ import com.serdardemirci.hrms.entities.concretes.Company;
 
 import java.util.List;
 
-public interface EmployerService {
+public interface CompanyService {
     List<Company> getAll();
 }

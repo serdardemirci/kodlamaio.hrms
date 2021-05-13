@@ -1,7 +1,7 @@
 package com.serdardemirci.hrms.business.concretes;
 
-import com.serdardemirci.hrms.business.abstracts.EmployerService;
-import com.serdardemirci.hrms.dataAccess.abstracts.EmployerDao;
+import com.serdardemirci.hrms.business.abstracts.CompanyService;
+import com.serdardemirci.hrms.dataAccess.abstracts.CompanyDao;
 import com.serdardemirci.hrms.entities.concretes.Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EmployerManager implements EmployerService {
+public class CompanyManager implements CompanyService {
 
     @Autowired
-    private EmployerDao employerDao;
+    private CompanyDao companyDao;
 
     @Override
     public List<Company> getAll() {
-        return this.employerDao.findAll();
+        return this.companyDao.findAll();
     }
 }
