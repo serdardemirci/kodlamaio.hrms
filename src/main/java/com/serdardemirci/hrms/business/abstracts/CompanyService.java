@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CompanyService {
     List<Company> getAll();
+    void add(Company company);
+    Company getPhoneNumberByCompanyId(int id);
 }

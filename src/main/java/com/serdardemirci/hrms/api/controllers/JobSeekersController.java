@@ -3,6 +3,7 @@ package com.serdardemirci.hrms.api.controllers;
 import com.serdardemirci.hrms.business.abstracts.JobSeekerService;
 import com.serdardemirci.hrms.entities.concretes.JobSeeker;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,7 +21,12 @@ public class JobSeekersController {
     }
 
     @PostMapping("/save")
-    public void add(@RequestBody JobSeeker jobSeeker){
-        this.jobSeekerService.add(jobSeeker);
+    public ResponseEntity<?> add(@RequestBody JobSeeker jobSeeker){
+        return this.jobSeekerService.add(jobSeeker);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<?> update(@RequestBody JobSeeker jobSeeker){
+        return this.jobSeekerService.update(jobSeeker);
     }
 }

@@ -3,9 +3,7 @@ package com.serdardemirci.hrms.api.controllers;
 import com.serdardemirci.hrms.business.abstracts.JobService;
 import com.serdardemirci.hrms.entities.concretes.Job;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +19,14 @@ public class JobsController {
         return this.jobService.getAll();
     }
 
-    private int number;
+    @PostMapping("/add")
+    public void add(@RequestBody Job job){
+        this.jobService.add(job);
+    }
+
+    @PostMapping("/getbyname")
+    public List<Job> getByName(@RequestParam String name){
+        return this.jobService.getByName(name);
+    }
 
 }

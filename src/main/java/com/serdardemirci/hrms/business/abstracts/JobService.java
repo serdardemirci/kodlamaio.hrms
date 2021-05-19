@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface JobService {
     List<Job> getAll();
+
+    void add(Job job);
+
+    List<Job> getByName(String name);
 }

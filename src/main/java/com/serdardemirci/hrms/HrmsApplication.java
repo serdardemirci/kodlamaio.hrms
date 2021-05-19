@@ -1,5 +1,6 @@
 package com.serdardemirci.hrms;
 
+import com.serdardemirci.hrms.dataAccess.abstracts.JobSeekerDao;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;

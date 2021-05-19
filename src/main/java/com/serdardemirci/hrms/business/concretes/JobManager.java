@@ -18,4 +18,14 @@ public class JobManager implements JobService {
     public List<Job> getAll() {
         return this.jobDao.findAll();
     }
+
+    @Override
+    public void add(Job job) {
+        this.jobDao.save(job);
+    }
+
+    @Override
+    public List<Job> getByName(String name) {
+        return this.jobDao.findJobsByNameContaining(name);
+    }
 }
