@@ -26,6 +26,5 @@ public class PhoneNumber {
     @ManyToOne()
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @JsonIgnore
-    //@JoinColumn(referencedColumnName = "id", name = "user_id")
     private Company company;
 }
