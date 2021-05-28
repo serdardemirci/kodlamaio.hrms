@@ -1,9 +1,7 @@
 package com.serdardemirci.hrms.adapter.abstracts;
 
-import com.serdardemirci.hrms.entities.concretes.JobSeeker;
-import com.serdardemirci.hrms.entities.concretes.Person;
-import com.serdardemirci.hrms.entities.concretes.User;
+import com.serdardemirci.hrms.entities.concretes.Individual;
 
 public interface ValidatePersonService {
-    boolean validate(Person person);
+    boolean validate(Individual individual);
 }

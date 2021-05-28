@@ -1,6 +1,8 @@
 package com.serdardemirci.hrms.api.controllers;
 
 import com.serdardemirci.hrms.business.abstracts.JobService;
+import com.serdardemirci.hrms.core.utilities.results.DataResult;
+import com.serdardemirci.hrms.core.utilities.results.Result;
 import com.serdardemirci.hrms.entities.concretes.Job;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,17 +17,17 @@ public class JobsController {
     private JobService jobService;
 
     @GetMapping("/getall")
-    public List<Job> getAll(){
+    public DataResult<List<Job>> getAll(){
         return this.jobService.getAll();
     }
 
     @PostMapping("/add")
-    public void add(@RequestBody Job job){
-        this.jobService.add(job);
+    public Result add(@RequestBody Job job){
+        return this.jobService.add(job);
     }
 
     @PostMapping("/getbyname")
-    public List<Job> getByName(@RequestParam String name){
+    public DataResult<List<Job>> getByName(@RequestParam String name){
         return this.jobService.getByName(name);
     }
 

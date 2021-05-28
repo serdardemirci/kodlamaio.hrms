@@ -8,8 +8,8 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "jobs_seekers")
+@Table(name = "candidates")
 @NoArgsConstructor
-public class JobSeeker extends Person {
+public class Candidate extends Individual {
 
 }

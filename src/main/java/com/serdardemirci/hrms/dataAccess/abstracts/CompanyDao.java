@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CompanyDao extends JpaRepository<Company, Integer> {
+    Company getByCompanyNameAndPhoneNumbers_PhoneNumber(String companyName, String phoneNumber);
 }

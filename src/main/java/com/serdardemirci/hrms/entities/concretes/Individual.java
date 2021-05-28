@@ -11,9 +11,9 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-@Table(name = "persons")
+@Table(name = "individuals")
 @NoArgsConstructor
-public class Person extends User{
+public abstract class Individual extends User{
 
     @Column(name = "first_name", length = 25, nullable = false)
     private String firstName;

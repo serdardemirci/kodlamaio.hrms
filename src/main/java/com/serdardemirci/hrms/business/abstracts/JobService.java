@@ -1,13 +1,15 @@
 package com.serdardemirci.hrms.business.abstracts;
 
+import com.serdardemirci.hrms.core.utilities.results.DataResult;
+import com.serdardemirci.hrms.core.utilities.results.Result;
 import com.serdardemirci.hrms.entities.concretes.Job;
 
 import java.util.List;
 
 public interface JobService {
-    List<Job> getAll();
+    DataResult<List<Job>> getAll();
 
-    void add(Job job);
+    Result add(Job job);
 
-    List<Job> getByName(String name);
+    DataResult<List<Job>> getByName(String name);
 }

@@ -1,6 +1,5 @@
 package com.serdardemirci.hrms.entities.concretes;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,5 +10,5 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "employees")
 @NoArgsConstructor
-public class Employee extends Person{
+public class Employee extends Individual {
 }
