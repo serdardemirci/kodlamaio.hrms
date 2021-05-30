@@ -3,22 +3,34 @@ package com.serdardemirci.hrms.api.controllers;
 import com.serdardemirci.hrms.business.abstracts.JobAdvertiseService;
 import com.serdardemirci.hrms.core.utilities.results.DataResult;
 import com.serdardemirci.hrms.core.utilities.results.Result;
+import com.serdardemirci.hrms.core.utilities.results.SuccessDataResult;
+import com.serdardemirci.hrms.dto.concretes.JobAdvertiseConverter;
+import com.serdardemirci.hrms.dto.concretes.JobAdvertiseGetDto;
+import com.serdardemirci.hrms.dto.concretes.JobAdvertiseSetDto;
+import com.serdardemirci.hrms.entities.concretes.City;
+import com.serdardemirci.hrms.entities.concretes.Company;
+import com.serdardemirci.hrms.entities.concretes.Job;
 import com.serdardemirci.hrms.entities.concretes.JobAdvertise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
 @RequestMapping("api/jobadvertise")
 public class JobAdvertisesController {
 
-    @Autowired
-    private JobAdvertiseService jobAdvertiseService;
+    @Autowired private JobAdvertiseService jobAdvertiseService;
+    @Autowired private JobAdvertiseConverter jobAdvertiseConverter;
+
 
     @GetMapping("/getall")
-    DataResult<List<JobAdvertise>> getAll(){
-        return this.jobAdvertiseService.getAll();
+    DataResult<List<JobAdvertiseGetDto>> getAll(){
+        DataResult<List<JobAdvertise>> jobAdvertises = this.jobAdvertiseService.getAll();
+        List<JobAdvertiseGetDto> jobAdvertiseGetDtos = jobAdvertiseConverter.entityToDto(jobAdvertises.getData());
+        return new SuccessDataResult(jobAdvertiseGetDtos);
     }
 
     @GetMapping("/getallsorted")
@@ -27,8 +39,8 @@ public class JobAdvertisesController {
     }
 
     @PostMapping("/save")
-    Result add(@RequestBody JobAdvertise jobAdvertise){
-        return this.jobAdvertiseService.add(jobAdvertise);
+    Result add(@Valid @RequestBody JobAdvertiseSetDto jobAdvertiseSetDto){
+        return this.jobAdvertiseService.add(this.jobAdvertiseConverter.dtoToEntity(jobAdvertiseSetDto));
     }
 
     @PostMapping("/getallbycompanyid")

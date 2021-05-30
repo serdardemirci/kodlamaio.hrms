@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Data
@@ -22,6 +23,7 @@ public class Job {
     @Column(name = "id")
     private int id;
 
+    @NotBlank(message = "Is tanimi alani bos birakilamaz!")
     @Column(name = "name", unique = true, length = 50)
     private String name;
 

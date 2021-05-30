@@ -1,15 +1,13 @@
 package com.serdardemirci.hrms.entities.concretes;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Type;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -29,9 +27,12 @@ public class JobAdvertise {
     @Column(name = "min_salary")
     private int minSalary;
 
+    @NotBlank(message = "Is pozisyon adedi bos birakilamaz!")
+    //@Pattern(regexp = "^[0-9]")
     @Column(name = "number_of_open_position", nullable = false)
-    private int numberOfOpenPosition;
+    private String numberOfOpenPosition;
 
+    @NotBlank(message = "Is tanimi alani bos birakilamaz!")
     @Column(name = "job_definition", nullable = false)
     @Type(type = "text")
     @Lob
@@ -59,6 +60,11 @@ public class JobAdvertise {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
     private Date createdAt;
+
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "updated_at", nullable = false)
+    private Date updatedAt;
 
     @Column(name = "is_active", nullable = false)
     private boolean active;

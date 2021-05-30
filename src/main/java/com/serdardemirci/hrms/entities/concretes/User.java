@@ -3,6 +3,9 @@ package com.serdardemirci.hrms.entities.concretes;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Data
 @Entity
@@ -15,11 +18,18 @@ public abstract class User {
     @Column(name = "id", updatable = false)
     private int id;
 
+    @Email(message = "Gecerli Email adresi giriniz!")
+    @NotBlank(message = "Email alani bos birakilamaz!")
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
+    @Size(min = 6, max = 26, message = "Sifreniz 6 ile 26 karakter arasinda olmalidir!")
     @Column(name = "password", nullable = false)
     private String password;
+
+    @Size(min = 6, max = 26, message = "Sifreniz 6 ile 26 karakter arasinda olmalidir!")
+    @Transient
+    private String repeatedPassword;
 
     @Column(name = "is_verified", nullable = false)
     private boolean isVerified;

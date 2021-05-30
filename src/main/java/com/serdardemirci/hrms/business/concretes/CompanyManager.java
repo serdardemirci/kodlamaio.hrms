@@ -24,7 +24,9 @@ public class CompanyManager implements CompanyService {
 
     @Override
     public void add(Company company) {
-        this.companyDao.save(company);
+        if(company.getPassword().equals(company.getRepeatedPassword())){
+            this.companyDao.save(company);
+        }
     }
 
     @Override

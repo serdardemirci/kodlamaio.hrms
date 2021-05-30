@@ -13,5 +13,4 @@ public interface JobAdvertiseDao extends JpaRepository<JobAdvertise, Integer> {
     List<JobAdvertise> getAllByCompanyId(int id);
     List<JobAdvertise> getAllByCompany_CompanyName(String companyName);
     List<JobAdvertise> getByCompany_CompanyNameContainsIgnoreCase(String companyName);
-
 }

@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Data
@@ -17,13 +18,15 @@ import java.util.List;
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertises"})
 public class Company extends User {
 
-    @Column(name = "company_name")
+    @NotBlank(message = "Sirket adi alani bos birakilamaz!")
+    @Column(name = "company_name", nullable = false)
     private String companyName;
 
-    @Column(name = "website")
+    @NotBlank(message = "Web adres alani bos birakilamaz!")
+    @Column(name = "website", nullable = false)
     private String website;
 
-    @OneToMany( mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = false)
+    @OneToMany( mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
     //@JoinColumn(referencedColumnName = "id")
     private List<PhoneNumber> phoneNumbers;
 

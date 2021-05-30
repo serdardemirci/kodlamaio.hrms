@@ -6,6 +6,7 @@ import com.serdardemirci.hrms.entities.concretes.Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class CompaniesController {
     }
 
     @PostMapping("/save")
-    void add(@RequestBody Company company){
+    void add(@Valid @RequestBody Company company){
         this.companyService.add(company);
     }
 
