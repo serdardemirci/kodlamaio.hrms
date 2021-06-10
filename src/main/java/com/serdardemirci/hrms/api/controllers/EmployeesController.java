@@ -8,14 +8,15 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@CrossOrigin
 @RestController
-@RequestMapping("/api/employees")
+@RequestMapping("/api/v1/employees")
 public class EmployeesController {
 
     @Autowired
     private EmployeeService employeeService;
 
-    @GetMapping("/getall")
+    @GetMapping("/getAll")
     public List<Employee> getAll(){
         return this.employeeService.getAll();
     }

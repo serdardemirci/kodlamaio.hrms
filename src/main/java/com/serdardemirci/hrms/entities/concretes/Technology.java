@@ -1,34 +1,30 @@
 package com.serdardemirci.hrms.entities.concretes;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "phone_numbers")
-@NoArgsConstructor
-@AllArgsConstructor
-public class PhoneNumber {
+@Table(name = "resume_techs")
+public class Technology {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "phone_number")
-    private String phoneNumber;
+    @ManyToOne
+    @JoinColumn(name = "resume_id")
+    private Resume resume;
 
-    @ManyToOne()
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private Company company;
+    @NotBlank
+    @Column(name = "description")
+    private String description;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

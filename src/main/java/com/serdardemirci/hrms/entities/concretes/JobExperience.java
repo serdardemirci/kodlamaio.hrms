@@ -1,34 +1,40 @@
 package com.serdardemirci.hrms.entities.concretes;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "phone_numbers")
+@Table(name = "resume_job_exp")
 @NoArgsConstructor
-@AllArgsConstructor
-public class PhoneNumber {
+public class JobExperience {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "phone_number")
-    private String phoneNumber;
+    @ManyToOne
+    @JoinColumn(name = "resume_id")
+    private Resume resume;
 
-    @ManyToOne()
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private Company company;
+    @Column(name = "corporate_name")
+    private String corporateName;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "started_date")
+    private LocalDate startedDate;
+
+    @Column(name = "ended_date")
+    private LocalDate endedDate;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
@@ -39,4 +45,5 @@ public class PhoneNumber {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at")
     private Date updatedAt;
+
 }

@@ -14,5 +14,4 @@ public class JobAdvertiseGetDto {
     private String numberOfOpenPosition;
     private Date createdAt;
     private LocalDate expirationDate;
-
 }

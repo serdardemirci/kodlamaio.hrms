@@ -1,7 +1,7 @@
 --INSERT INTO jobs_seekers (name) VALUES ('Software Developer');
 --INSERT INTO jobs_seekers (name) VALUES ('Software Architecture');
 --INSERT INTO companies (email, password, is_verified, company_name, website) VALUES ("firma@firma.com", "secure", true, "Firma", "firma.com");
-INSERT INTO jobs (name) VALUES ('Software Developer');
+/*INSERT INTO jobs (name) VALUES ('Software Developer');
 INSERT INTO jobs (name) VALUES ('Software Engineer');
 INSERT INTO users (email, password, is_verified) VALUES ('info@firma.com', 'testpassword', true);
 INSERT INTO users (email, password, is_verified) VALUES ('info@abc.com', 'testpassword', true);
@@ -15,12 +15,12 @@ INSERT INTO verification_codes (code, is_used, user_id) VALUES ('4321', false, 1
 INSERT INTO verification_codes (code, is_used, user_id) VALUES ('5678', true, 1);
 INSERT INTO verification_codes (code, is_used, user_id) VALUES ('3579', true, 2);
 INSERT INTO phone_numbers (user_id, phone_number) VALUES (2, '12345');
-
+*/
 
 ------------
 -- Cities --
 ------------
-INSERT INTO public.cities(name)
+/*INSERT INTO public.cities(name)
 VALUES
 ('Adana'),
 ('Adıyaman'),
@@ -102,4 +102,4 @@ VALUES
 ('Karabük'),
 ('Kilis'),
 ('Osmaniye'),
-('Düzce')
+('Düzce')*/

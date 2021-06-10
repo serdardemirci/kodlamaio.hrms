@@ -1,7 +1,5 @@
 package com.serdardemirci.hrms.dto.concretes;
 
-import com.serdardemirci.hrms.entities.concretes.Job;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.time.LocalDate;

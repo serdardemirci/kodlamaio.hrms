@@ -12,11 +12,11 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "jobs")
+@Table(name = "job_titles")
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertises"})
-public class Job {
+public class JobTitle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,4 @@ public class Job {
     @NotBlank(message = "Is tanimi alani bos birakilamaz!")
     @Column(name = "name", unique = true, length = 50)
     private String name;
-
-    @OneToMany(mappedBy = "job")
-    private List<JobAdvertise> jobAdvertises;
 }

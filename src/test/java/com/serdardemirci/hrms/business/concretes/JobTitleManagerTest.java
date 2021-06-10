@@ -1,18 +1,15 @@
 package com.serdardemirci.hrms.business.concretes;
 
-import com.serdardemirci.hrms.entities.concretes.Job;
+import com.serdardemirci.hrms.entities.concretes.JobTitle;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class JobManagerTest {
+class JobTitleManagerTest {
 
 
-    private List<Job> jobDao;
+    private List<JobTitle> jobTitleDao;
 
     @BeforeEach
     void setUp() {

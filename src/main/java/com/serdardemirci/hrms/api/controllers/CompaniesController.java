@@ -9,15 +9,16 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@CrossOrigin
 @RestController
-@RequestMapping("/api/companies")
+@RequestMapping("/api/v1/companies")
 public class CompaniesController {
 
     @Autowired
     private CompanyService companyService;
 
-    @GetMapping("/getall")
-    public List<Company> getAll(){
+    @GetMapping("/getAll")
+    public DataResult<List<Company>> getAll(){
         return this.companyService.getAll();
     }
 
@@ -26,12 +27,12 @@ public class CompaniesController {
         this.companyService.add(company);
     }
 
-    @GetMapping("/getcompanybyid/{id}")
+    @GetMapping("/getCompanyById/{id}")
     Company getCompanyById(@PathVariable int id){
         return this.companyService.getPhoneNumberByCompanyId(id);
     }
 
-    @GetMapping("/getcompanybyid2")
+    @GetMapping("/getCompanyById2")
     Company getCompanyById2(int id, @RequestParam(value = "isim") String name){
         System.out.println(name);
         return this.companyService.getPhoneNumberByCompanyId(id);

@@ -16,7 +16,7 @@ public class VerificationCode {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @Column(name = "code", unique = true)
     private String code;

@@ -42,9 +42,8 @@ public class JobAdvertise {
     private LocalDate expirationDate;
 
     @ManyToOne
-    @JoinColumn(name = "job_id", nullable = false)
-    //@JsonIgnoreProperties("id")
-    private Job job;
+    @JoinColumn(name = "job_title_id", nullable = false)
+    private JobTitle jobTitle;
 
     @ManyToOne
     @JoinColumn(name = "city_id", nullable = false)

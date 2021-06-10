@@ -2,11 +2,10 @@ package com.serdardemirci.hrms.business.concretes;
 
 import com.serdardemirci.hrms.adapter.abstracts.ValidatePersonService;
 import com.serdardemirci.hrms.business.abstracts.CandidateService;
-import com.serdardemirci.hrms.core.utilities.results.ErrorResult;
-import com.serdardemirci.hrms.core.utilities.results.Result;
-import com.serdardemirci.hrms.core.utilities.results.SuccessResult;
+import com.serdardemirci.hrms.core.utilities.results.*;
 import com.serdardemirci.hrms.dataAccess.abstracts.CandidateDao;
 import com.serdardemirci.hrms.entities.concretes.Candidate;
+import com.serdardemirci.hrms.entities.concretes.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
@@ -29,14 +28,16 @@ public class CandidateManager implements CandidateService {
     }
 
     @Override
-    public List<Candidate> getAll() {
-        return this.candidateDao.findAll();
+    public DataResult<List<Candidate>> getAll() {
+        return new SuccessDataResult<>(this.candidateDao.findAll());
     }
 
     @Override
     public Result add(Candidate candidate) {
         if(this.validatePersonService.validate(candidate)){
-            this.candidateDao.save(candidate);
+            Candidate candidate1 = this.candidateDao.save(candidate);
+            candidate1.getId();
+
             return new SuccessResult();
         }
         return new ErrorResult("Islem basarisiz");
@@ -57,5 +58,10 @@ public class CandidateManager implements CandidateService {
         else{
             return ResponseEntity.badRequest().body("Kayit bulunamadi");
         }
+    }
+
+    @Override
+    public DataResult<User> findByEmail(String email) {
+        return new SuccessDataResult<>(this.candidateDao.findByEmail(email));
     }
 }

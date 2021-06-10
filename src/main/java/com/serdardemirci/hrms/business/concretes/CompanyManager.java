@@ -18,8 +18,8 @@ public class CompanyManager implements CompanyService {
     private CompanyDao companyDao;
 
     @Override
-    public List<Company> getAll() {
-        return this.companyDao.findAll();
+    public DataResult<List<Company>> getAll() {
+        return new SuccessDataResult<>(this.companyDao.findAll());
     }
 
     @Override

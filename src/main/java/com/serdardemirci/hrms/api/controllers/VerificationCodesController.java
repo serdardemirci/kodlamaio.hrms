@@ -11,14 +11,15 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@CrossOrigin
 @RestController
-@RequestMapping("/api/verificationcodes")
+@RequestMapping("/api/v1/verificationCodes")
 public class VerificationCodesController {
 
     @Autowired
     private VerificationCodeService verificationCodeService;
 
-    @GetMapping("/getall")
+    @GetMapping("/getAll")
     DataResult<List<VerificationCode>> getAll(){
         return this.verificationCodeService.getAll();
     }
